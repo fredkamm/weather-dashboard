@@ -1,0 +1,31 @@
+header {
+    display: flex;
+    justify-content: center;
+    color: white;
+    background-color: turquoise;
+}
+
+h3 {
+    display: flex;
+    font-size: 28px;
+}
+
+#submit {
+    display: flex;
+    margin: 0 0 8% 0;
+    padding: 3% 37%;
+    border-color: lightskyblue;
+    background-color: lightskyblue;
+
+}
+
+#city {
+    display: flex;
+    padding: 3% 14%;
+}
+
+.search {
+    border-bottom: 1px solid black;
+    margin-right: 80%;
+
+}
