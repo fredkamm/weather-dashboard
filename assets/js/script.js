@@ -17,7 +17,7 @@ var citySubmitHandler = function (event) {
 
 // function that fetches the weather api
 var getCityRepos = function(city){
-    var apiUrl = 'https://api.openweathermap.org/data/2.5/weather?q=philadelphia&appid=' + apiKey;
+    var apiUrl = 'https://api.openweathermap.org/data/2.5/weather?q=' + cityInput.value.trim() +'&appid=' + apiKey;
 
     fetch(apiUrl)
     .then(function(response){
