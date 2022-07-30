@@ -4,9 +4,20 @@ var cityInput = document.querySelector('#city');
 
 var submitBtn = document.querySelector('#submit');
 
+
+var citySubmitHandler = function (event) {
+    event.preventDefault();
+
+    var cityName = cityInput.value.trim();
+
+    if (cityName) {
+        getCityRepos(cityName);
+    }
+}
+
 // function that fetches the weather api
 var getCityRepos = function(city){
-    var apiUrl = 'https://api.openweathermap.org/data/2.5/weather?q=Dallas&appid=' + apiKey;
+    var apiUrl = 'https://api.openweathermap.org/data/2.5/weather?q=philadelphia&appid=' + apiKey;
 
     fetch(apiUrl)
     .then(function(response){
@@ -18,4 +29,4 @@ var getCityRepos = function(city){
     })
 }
 
-getCityRepos();
+submitBtn.addEventListener('click', citySubmitHandler)
