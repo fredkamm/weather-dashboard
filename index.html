@@ -15,30 +15,29 @@
       Weather Dashboard
     </h1>
   </header>
+  <main>
+        <section class="search">
+            <div class="card">
+                <h3 class="card-header">Search for a city</h3>
+                  <input name="city" id="city" type="text" class="form-input" />
+                <br>
+                 <button id="submit">Search</button>
+                 </form>
+            </div>
+        </section>
 
-  <section class="search">
-      <div class="card">
-        <h3 class="card-header">Search for a city</h3>
-        <form id="user-form" class="card-body">
-          <!-- <label class="form-label" for="username">Username</label> -->
-          <input name="city" id="city" type="text" class="form-input" />
-          <br>
-          <button id="submit">Search</button>
-        </form>
-      </div>
-    </section>
+        <section>
+            <div class="card">
+                 <h3 class="card-header">Search Result</h3>
+                 <div id="city-buttons" class="city-buttons">
+            </div>
+            </div>
+        </section>
 
-    <main>
-      <div class="card">
-        <h3 class="card-header">Search Result</h3>
-        <div id="city-buttons" class="city-buttons">
-        </div>
-      </div>
-
-    <div class="col-12 col-md-8">
-      <h2 class="city">City <span id="repo-search-term"></span></h2>
-      <div id="repos-container" class="list-group"></div>
-    </div>
+        <section class="results">
+        <div id="repos-container"
+            ></div>  
+        </section>
   </main>
 
   <script src="./assets/js/script.js"></script>

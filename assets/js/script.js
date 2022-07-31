@@ -1,9 +1,8 @@
 var apiKey = "2dee45951d3010a3a0e002fc582e7cc5";
 
 var cityInput = document.querySelector('#city');
-
 var submitBtn = document.querySelector('#submit');
-
+var cityResults = document.querySelector('#repos-container');
 
 var citySubmitHandler = function (event) {
     event.preventDefault();
@@ -16,8 +15,9 @@ var citySubmitHandler = function (event) {
 }
 
 // function that fetches the weather api
-var getCityRepos = function(city){
-    var apiUrl = 'https://api.openweathermap.org/data/2.5/weather?q=' + cityInput.value.trim() +'&appid=' + apiKey;
+var getCityRepos = function(){
+
+    var apiUrl = 'https://api.openweathermap.org/data/2.5/weather?q=' + cityInput.value.trim() + '&units=imperial&appid=' + apiKey;
 
     fetch(apiUrl)
     .then(function(response){
@@ -25,7 +25,23 @@ var getCityRepos = function(city){
         return response.json();
     })
     .then(function(data){
+        console.log("data \n ---------")
         console.log(data);
+        // for (var i = 0; i < data.length; i++) {
+            var displayCity = document.createElement('h2');
+            var displayTemp = document.createElement('p');
+            var displayHumid = document.createElement('p');
+            var displayWind = document.createElement('p');
+            displayCity.textContent = data.name;
+            displayTemp.textContent = "Temp: " + data.main.temp + ' F';
+            displayWind.textContent = "Wind: " + data.wind.speed + ' MPH';
+            displayHumid.textContent = "Humidity: " + data.main.humidity + ' %';
+            cityResults.append(displayCity);
+            cityResults.append(displayTemp);
+            cityResults.append(displayHumid);
+            cityResults.append(displayWind);
+
+        // }
     })
 }
 
