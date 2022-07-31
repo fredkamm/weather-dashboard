@@ -17,6 +17,8 @@ var apiKey = "2dee45951d3010a3a0e002fc582e7cc5";
 var cityInput = document.querySelector('#city');
 var submitBtn = document.querySelector('#submit');
 var cityResults = document.querySelector('#repos-container');
+var searchHistory = document.querySelector('#search-history');
+var wIcon = document.querySelector('#wicon');
 
 
 // function that handles the users input in the input box
@@ -44,6 +46,8 @@ var getCityRepos = function () {
         .then(function (data) {
             console.log(data);
             console.log("data^^^^^^^")
+            var icon = data.weather[0].icon;
+            var iconUrl = "http://openweathermap.org/img/w/" + icon + ".png";
             var rightNow = moment().format('L');
             // creating elements for the today research block
             var displayCity = document.createElement('h2');
@@ -63,14 +67,21 @@ var getCityRepos = function () {
             cityResults.append(displayHumid);
             cityResults.append(displayUVI);
             cityResults.setAttribute('style', "border: 1px solid black;");
+            wIcon.setAttribute('src', iconUrl); 
         })
         // saves the city to local storage
         .then(function (save) {
             localStorage.setItem('city', JSON.stringify(cityInput.value.trim()));
         })
-        .then(function (get){
-            
-        })
+    // .then(function (get) {
+    //     var getHistory = localStorage.getItem('city');
+    //     var displayHistory = document.createElement('p');
+
+
+    //     displayHistory.textContent(getHistory);
+    //     searchHistory.append(displayHistory);
+
+    // })
 }
 
 // thought this would work for the 5 day forecast no luck, error codes 
