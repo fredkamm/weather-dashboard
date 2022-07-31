@@ -10,18 +10,29 @@ h3 {
     font-size: 28px;
 }
 
+/* button */
 #submit {
     display: flex;
     margin: 0 0 8% 0;
     padding: 3% 37%;
     border-color: lightskyblue;
     background-color: lightskyblue;
-
 }
-
+/* input box */
 #city {
     display: flex;
     padding: 3% 14%;
+}
+
+
+#user-search {
+    margin-top: 6%;
+}
+
+/* results box */
+#repos-container {
+    border: 1px solid black;
+    margin-top: 2%;
 }
 
 .search {
@@ -29,6 +40,8 @@ h3 {
     margin-right: 80%;
 
 }
+
+
 
 #repos-container {
     display: block;
