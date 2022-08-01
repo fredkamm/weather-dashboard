@@ -90,6 +90,7 @@ var getCityRepos = function () {
             var lon = data.coord.lon
             console.log(lat, lon)
             var newApi = 'https://api.openweathermap.org/data/2.5/onecall?lat=' + lat + '&lon=' + lon + '&units=imperial&appid=' + apiKey;
+            
             // fetching the new api
             fetch(newApi)
                 .then(function (newresponse) {
@@ -110,42 +111,57 @@ var getCityRepos = function () {
                     cityResults.append(displayWind);
                     cityResults.append(displayHumid);
                     cityResults.append(displayUVI);
+
                     // display one day out results
+                    var oneDayDate = moment().add(1, 'day').format('L');
                     var onedayOut = newdata.daily[1]
                     var oneDayIcon = onedayOut.weather[0].icon;
                     var oneUrl = "http://openweathermap.org/img/w/" + oneDayIcon + ".png";
+                    dateOneD.textContent = oneDayDate
                     tempOneD.textContent = "Temp " + onedayOut.temp.day + 'F';
                     windOneD.textContent  = "Wind " + onedayOut.wind_speed + 'MPH';
                     humOneD.textContent = "Humidity " + onedayOut.humidity + "%"
                     wIconOneD.setAttribute('src', oneUrl);
+
                     // display two day out results
+                    var twoDayDate = moment().add(2, 'day').format('L');
                     var twodayOut = newdata.daily[2]
                     var twoDayIcon = twodayOut.weather[0].icon;
                     var twoUrl = "http://openweathermap.org/img/w/" + oneDayIcon + ".png";
+                    dateTwoD.textContent = twoDayDate
                     tempTwoD.textContent = "Temp " + twodayOut.temp.day + 'F';
                     windTwoD.textContent  = "Wind " + twodayOut.wind_speed + 'MPH';
                     humTwoD.textContent = "Humidity " + twodayOut.humidity + "%"
                     wIconTwoD.setAttribute('src', twoUrl);
+
                     // display three day out results
+                    var threeDayDate = moment().add(3, 'day').format('L');
                     var threedayOut = newdata.daily[3]
                     var threeDayIcon = threedayOut.weather[0].icon;
                     var threeUrl = "http://openweathermap.org/img/w/" + threeDayIcon + ".png";
+                    dateThreeD.textContent = threeDayDate
                     tempThreeD.textContent = "Temp " + threedayOut.temp.day + 'F';
                     windThreeD.textContent  = "Wind " + threedayOut.wind_speed + 'MPH';
                     humThreeD.textContent = "Humidity " + threedayOut.humidity + "%"
                     wIconThreeD.setAttribute('src', threeUrl);
+
                     // display four day out results
+                    var fourDayDate = moment().add(4, 'day').format('L');
                     var fourdayOut = newdata.daily[4]
                     var fourDayIcon = threedayOut.weather[0].icon;
                     var fourUrl = "http://openweathermap.org/img/w/" + fourDayIcon + ".png";
+                    dateFourD.textContent = fourDayDate
                     tempFourD.textContent = "Temp " + fourdayOut.temp.day + 'F';
                     windFourD.textContent  = "Wind " + fourdayOut.wind_speed + 'MPH';
                     humFourD.textContent = "Humidity " + fourdayOut.humidity + "%"
                     wIconFourD.setAttribute('src', fourUrl);
+
                     // display five day out results
+                    var fiveDayDate = moment().add(5, 'day').format('L');
                     var fivedayOut = newdata.daily[5]
                     var fiveDayIcon = fivedayOut.weather[0].icon;
                     var fiveUrl = "http://openweathermap.org/img/w/" + fiveDayIcon + ".png";
+                    dateFiveD.textContent = fiveDayDate
                     tempFiveD.textContent = "Temp " + fivedayOut.temp.day + 'F';
                     windFiveD.textContent  = "Wind " + fivedayOut.wind_speed + 'MPH';
                     humFiveD.textContent = "Humidity " + fivedayOut.humidity + "%"
