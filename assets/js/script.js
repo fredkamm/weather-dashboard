@@ -60,7 +60,6 @@ var citySubmitHandler = function (event) {
 
     if (cityName) {
         getCityRepos(cityName);
-
     }
 }
 
@@ -127,7 +126,7 @@ var getCityRepos = function () {
                     var twoDayDate = moment().add(2, 'day').format('L');
                     var twodayOut = newdata.daily[2]
                     var twoDayIcon = twodayOut.weather[0].icon;
-                    var twoUrl = "http://openweathermap.org/img/w/" + oneDayIcon + ".png";
+                    var twoUrl = "http://openweathermap.org/img/w/" + twoDayIcon + ".png";
                     dateTwoD.textContent = twoDayDate
                     tempTwoD.textContent = "Temp " + twodayOut.temp.day + 'F';
                     windTwoD.textContent = "Wind " + twodayOut.wind_speed + 'MPH';
@@ -169,34 +168,16 @@ var getCityRepos = function () {
                 })
         })
         // saves the city to local storage
-        .then(function (save) {
+        .then(function () {
             localStorage.setItem('city', JSON.stringify(cityInput.value.trim()));
         })
-    // .then(function (get) {
-    //     var getHistory = localStorage.getItem('city');
-    //     var displayHistory = document.createElement('p');
-
-
-    //     displayHistory.textContent(getHistory);
-    //     searchHistory.append(displayHistory);
-
-    // })
+        .then(function () {
+            var getHistory = localStorage.getItem('city');
+            var displayHistory = document.createElement('p');
+            console.log(searchHistory)
+            displayHistory.textContent = getHistory;
+            searchHistory.append(displayHistory);
+        })
 }
-
-
-
-// thought this would work for the 5 day forecast no luck, error codes 
-// var get5Day = function () {
-
-//     var multiDayApi = 'api.openweathermap.org/data/2.5/forecast?' + cityInput.value.trim() + '&appid=' + apiKey;
-
-//     fetch(multiDayApi)
-//         .then(function (response) {
-//             console.log(response);
-//             return response.json();
-//         })
-//         .then(data)
-//         console.log(data);
-// }
 
 submitBtn.addEventListener('click', citySubmitHandler)
