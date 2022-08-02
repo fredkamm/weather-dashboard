@@ -90,7 +90,7 @@ var getCityRepos = function () {
             var lon = data.coord.lon
             console.log(lat, lon)
             var newApi = 'https://api.openweathermap.org/data/2.5/onecall?lat=' + lat + '&lon=' + lon + '&units=imperial&appid=' + apiKey;
-            
+
             // fetching the new api
             fetch(newApi)
                 .then(function (newresponse) {
@@ -119,7 +119,7 @@ var getCityRepos = function () {
                     var oneUrl = "http://openweathermap.org/img/w/" + oneDayIcon + ".png";
                     dateOneD.textContent = oneDayDate
                     tempOneD.textContent = "Temp " + onedayOut.temp.day + 'F';
-                    windOneD.textContent  = "Wind " + onedayOut.wind_speed + 'MPH';
+                    windOneD.textContent = "Wind " + onedayOut.wind_speed + 'MPH';
                     humOneD.textContent = "Humidity " + onedayOut.humidity + "%"
                     wIconOneD.setAttribute('src', oneUrl);
 
@@ -130,7 +130,7 @@ var getCityRepos = function () {
                     var twoUrl = "http://openweathermap.org/img/w/" + oneDayIcon + ".png";
                     dateTwoD.textContent = twoDayDate
                     tempTwoD.textContent = "Temp " + twodayOut.temp.day + 'F';
-                    windTwoD.textContent  = "Wind " + twodayOut.wind_speed + 'MPH';
+                    windTwoD.textContent = "Wind " + twodayOut.wind_speed + 'MPH';
                     humTwoD.textContent = "Humidity " + twodayOut.humidity + "%"
                     wIconTwoD.setAttribute('src', twoUrl);
 
@@ -141,7 +141,7 @@ var getCityRepos = function () {
                     var threeUrl = "http://openweathermap.org/img/w/" + threeDayIcon + ".png";
                     dateThreeD.textContent = threeDayDate
                     tempThreeD.textContent = "Temp " + threedayOut.temp.day + 'F';
-                    windThreeD.textContent  = "Wind " + threedayOut.wind_speed + 'MPH';
+                    windThreeD.textContent = "Wind " + threedayOut.wind_speed + 'MPH';
                     humThreeD.textContent = "Humidity " + threedayOut.humidity + "%"
                     wIconThreeD.setAttribute('src', threeUrl);
 
@@ -152,7 +152,7 @@ var getCityRepos = function () {
                     var fourUrl = "http://openweathermap.org/img/w/" + fourDayIcon + ".png";
                     dateFourD.textContent = fourDayDate
                     tempFourD.textContent = "Temp " + fourdayOut.temp.day + 'F';
-                    windFourD.textContent  = "Wind " + fourdayOut.wind_speed + 'MPH';
+                    windFourD.textContent = "Wind " + fourdayOut.wind_speed + 'MPH';
                     humFourD.textContent = "Humidity " + fourdayOut.humidity + "%"
                     wIconFourD.setAttribute('src', fourUrl);
 
@@ -163,7 +163,7 @@ var getCityRepos = function () {
                     var fiveUrl = "http://openweathermap.org/img/w/" + fiveDayIcon + ".png";
                     dateFiveD.textContent = fiveDayDate
                     tempFiveD.textContent = "Temp " + fivedayOut.temp.day + 'F';
-                    windFiveD.textContent  = "Wind " + fivedayOut.wind_speed + 'MPH';
+                    windFiveD.textContent = "Wind " + fivedayOut.wind_speed + 'MPH';
                     humFiveD.textContent = "Humidity " + fivedayOut.humidity + "%"
                     wIconFiveD.setAttribute('src', fiveUrl);
                 })
